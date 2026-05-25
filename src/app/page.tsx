@@ -749,7 +749,7 @@ export default function Home() {
                             key={i}
                             className={cn(
                               'text-lg',
-                              i < book.rating
+                              i < book.rating!
                                 ? (darkMode ? 'text-yellow-400' : 'text-yellow-500')
                                 : (darkMode ? 'text-gray-600' : 'text-gray-300')
                             )}
