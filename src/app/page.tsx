@@ -742,6 +742,23 @@ export default function Home() {
                     )}>
                       {book.author}
                     </p>
+                    {book.rating != null && book.rating > 0 && (
+                      <div className="flex items-center gap-1">
+                        {[...Array(5)].map((_, i) => (
+                          <span
+                            key={i}
+                            className={cn(
+                              'text-lg',
+                              i < (book.rating as number)
+                                ? (darkMode ? 'text-yellow-400' : 'text-yellow-500')
+                                : (darkMode ? 'text-gray-600' : 'text-gray-300')
+                            )}
+                          >
+                            ★
+                          </span>
+                        ))}
+                      </div>
+                    )}
 
                   </div>
                 </div>
