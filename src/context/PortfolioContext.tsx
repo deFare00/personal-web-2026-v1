@@ -38,7 +38,7 @@ export type Book = {
   title: string;
   author: string;
   status: 'reading' | 'read';
-  rating?: number;
+  rating: number;
   thumbnail?: string;
 };
 
@@ -181,7 +181,10 @@ export function PortfolioProvider({ children }: { children: ReactNode }) {
     }
     
     console.log('Fetched books:', data);
-    setBooks(data as Book[]);
+    setBooks(data.map(b => ({
+      ...b,
+      rating: b.rating ?? 0
+    })) as Book[]);
   };
 
   // CRUD Operations
